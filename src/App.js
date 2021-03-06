@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useContext, useMemo } from 'react'
 
 import { AuthContext } from './providers/auth'
 
+const Admin = lazy(() => import('./pages/Admin'))
 const Auth = lazy(() => import('./pages/Auth'))
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       return Auth
     }
 
-    return () => <p>Bem vindo ao sistema</p>
+    return Admin
   }, [userLogged])
 
   return (
