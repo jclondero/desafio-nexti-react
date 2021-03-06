@@ -1,9 +1,19 @@
-import React, { Suspense, useMemo } from 'react'
+import React, { lazy, Suspense, useContext, useMemo } from 'react'
+
+import { AuthContext } from './providers/auth'
+
+const Auth = lazy(() => import('./pages/Auth'))
 
 function App() {
+  const { userLogged } = useContext(AuthContext)
+
   const Component = useMemo(() => {
-    return () => <p>Estrutura inicial</p>
-  }, [])
+    if (!userLogged) {
+      return Auth
+    }
+
+    return () => <p>Bem vindo ao sistema</p>
+  }, [userLogged])
 
   return (
     <Suspense fallback={() => <p>Carregando...</p>}>
