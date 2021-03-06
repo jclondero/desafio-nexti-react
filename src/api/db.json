@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "jean.londero@icloud.com",
+      "password": "123",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTYwNTg1NTAyMCIsIm5hbWUiOiJKZWFuIENhcmxvcyBMb25kZXJvIiwiYXZhdGFyIjoiaHR0cHM6Ly9pLnByYXZhdGFyLmNjLzMwMCIsImp0aSI6IjlhZDAxMTYzLWQxMGMtNDMwYi1hNzFiLWZmZGVmMWRmY2QwZiIsImlhdCI6MTYxNDk5NjI4NCwiZXhwIjoxNjE0OTk5OTU1fQ.Lu31SfdXVmLV_z5eSAjUR4o5MRlcwBASQ5u1KFp--z8"
+    }
+  ]
+}
