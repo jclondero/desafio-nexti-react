@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+import { deepOrange } from '@material-ui/core/colors'
+
 export const styles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -12,8 +14,11 @@ export const styles = makeStyles((theme) => ({
   },
 }))
 
-export const stylesDrawer = makeStyles({
-  list: {
-    width: 250,
+export const stylesDrawerAvatar = makeStyles((theme) => ({
+  avatar: {
+    width: theme.spacing(8),
+    height: theme.spacing(8),
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
   },
-})
+}))

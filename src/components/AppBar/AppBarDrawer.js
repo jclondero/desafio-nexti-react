@@ -1,20 +1,29 @@
 import React from 'react'
 
-import { Drawer, List } from '@material-ui/core'
+import { Box, Divider, Drawer, List } from '@material-ui/core'
 
+import { AppBarDrawerProfile } from './AppBarDrawerProfile'
 import { AppBarDrawerItem } from './AppBarDrawerItem'
-import { stylesDrawer } from './styles'
+import { AppBarDrawerItemLogout } from './AppBarDrawerItemLogout'
 
 export const AppBarDrawer = ({ opened, toggle }) => {
-  const classes = stylesDrawer()
-
   return (
     <Drawer anchor="left" open={opened} onClose={toggle}>
-      <div className={classes.list} role="presentation" onClick={toggle} onKeyDown={toggle}>
-        <List>
-          <AppBarDrawerItem />
-        </List>
-      </div>
+      <Box width={300}>
+        <AppBarDrawerProfile />
+
+        <Divider />
+
+        <Box onClick={toggle} onKeyDown={toggle}>
+          <List>
+            <AppBarDrawerItem />
+          </List>
+        </Box>
+
+        <Divider />
+
+        <AppBarDrawerItemLogout />
+      </Box>
     </Drawer>
   )
 }
