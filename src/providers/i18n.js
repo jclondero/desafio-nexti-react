@@ -4,7 +4,17 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   'pt-BR': {
     translation: {
-      bemVindoAoSistema: 'Bem vindo ao sistema!',
+      loginPage: 'Página de login',
+      email: 'Email',
+      password: 'Senha',
+      rememberMe: 'Lembrar de mim',
+      signIn: 'Entrar',
+
+      feedbacks: {
+        emailRequired: 'Email é obrigatório!',
+        passwordRequired: 'Senha é obrigatória!',
+        invalidEmail: 'Email inválido!',
+      },
     },
   },
 }
