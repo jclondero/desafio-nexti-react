@@ -28,9 +28,9 @@ export const AppBar = () => {
           <Typography variant="h6" className={classes.title}>
             {t('app_title')}
           </Typography>
-          <Button color="inherit">Ajuda</Button>
+          <Button color="inherit">{t('help')}</Button>
 
-          <Button color="inherit">Configurações</Button>
+          <Button color="inherit">{t('settings')}</Button>
         </Toolbar>
       </AppBarMaterialUI>
 

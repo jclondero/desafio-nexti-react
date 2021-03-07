@@ -8,7 +8,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 import { AuthContext } from '../../providers/auth'
 
-export const AppBarDrawerItemLogout = () => {
+export const AppBarDrawerLogout = () => {
   const { logout } = useContext(AuthContext)
   const { t } = useTranslation()
 
@@ -18,7 +18,7 @@ export const AppBarDrawerItemLogout = () => {
         <ListItemIcon>
           <ExitToAppIcon />
         </ListItemIcon>
-        <ListItemText primary={t('sair')} />
+        <ListItemText primary={t('exit')} />
       </ListItem>
     </List>
   )

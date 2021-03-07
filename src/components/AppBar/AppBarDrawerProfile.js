@@ -25,7 +25,7 @@ export const AppBarDrawerProfile = () => {
 
       <Box width={1} paddingX={2}>
         <Button variant="contained" color="primary" fullWidth onClick={console.log}>
-          {t('meuPerfil')}
+          {t('myProfile')}
         </Button>
       </Box>
     </Box>

@@ -22,3 +22,14 @@ export const stylesDrawerAvatar = makeStyles((theme) => ({
     backgroundColor: deepOrange[500],
   },
 }))
+
+export const stylesDrawerToggleLanguage = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 300,
+  },
+}))
