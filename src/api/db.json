@@ -6,5 +6,49 @@
       "password": "123",
       "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTYwNTg1NTAyMCIsIm5hbWUiOiJKZWFuIENhcmxvcyBMb25kZXJvIiwiYXZhdGFyIjoiaHR0cHM6Ly9pLnByYXZhdGFyLmNjLzMwMCIsImp0aSI6IjlhZDAxMTYzLWQxMGMtNDMwYi1hNzFiLWZmZGVmMWRmY2QwZiIsImlhdCI6MTYxNDk5NjI4NCwiZXhwIjoxNjE0OTk5OTU1fQ.Lu31SfdXVmLV_z5eSAjUR4o5MRlcwBASQ5u1KFp--z8"
     }
+  ],
+  "favorites": [
+    {
+      "id": 1,
+      "name": "Tarefa 1",
+      "subMenus": [
+        {
+          "id": 11,
+          "name": "Urgente"
+        },
+        {
+          "id": 12,
+          "name": "Data Fixa"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tarefa 2",
+      "subMenus": [
+        {
+          "id": 22,
+          "name": "Avisos"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Tarefa 3",
+      "subMenus": [
+        {
+          "id": 33,
+          "name": "Convocação"
+        },
+        {
+          "id": 34,
+          "name": "Checklist"
+        },
+        {
+          "id": 35,
+          "name": "Lixo"
+        }
+      ]
+    }
   ]
 }
