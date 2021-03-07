@@ -12,7 +12,6 @@ export const stylesAdminLayoutFavorites = makeStyles({
 
 export const stylesAdminLayoutFilters = makeStyles({
   buttonSpacing: {
-    marginTop: 20,
     marginRight: 20,
   },
 })

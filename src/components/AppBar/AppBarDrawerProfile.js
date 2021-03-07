@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { Avatar, Box, Button } from '@material-ui/core'
 
 import { AuthContext } from '../../providers/auth'
+
+import { getInitials } from '../../helpers/strings'
+
 import { stylesDrawerAvatar } from './styles'
 
 export const AppBarDrawerProfile = () => {
@@ -16,7 +19,7 @@ export const AppBarDrawerProfile = () => {
   return (
     <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" marginY={5}>
       <Box marginBottom={2}>
-        <Avatar className={classes.avatar}>{userLogged.name.charAt(0)}</Avatar>
+        <Avatar className={classes.avatar}>{getInitials(userLogged.name)}</Avatar>
       </Box>
 
       <Box fontSize={18} fontWeight="fontWeightBold" marginBottom={4}>

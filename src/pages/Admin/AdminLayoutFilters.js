@@ -16,7 +16,8 @@ export const AdminLayoutFilters = () => {
   return (
     <Box display="flex" flex={1} flexDirection="column">
       <TextField id="outlined-search" label={t('search')} type="search" variant="outlined" />
-      <Box display="flex" alignItems="center" justifyContent="space-between">
+
+      <Box display="flex" alignItems="center" justifyContent="space-between" marginTop={3}>
         <Box display="flex">
           <Button className={classes.buttonSpacing} color="primary" variant="contained">
             {t('toAssign')}

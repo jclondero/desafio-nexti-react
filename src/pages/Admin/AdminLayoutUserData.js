@@ -8,6 +8,8 @@ import { ArrowDropDown } from '@material-ui/icons'
 
 import { AuthContext } from '../../providers/auth'
 
+import { getInitials } from '../../helpers/strings'
+
 import { AdminLayoutUserDataStyledBadge, stylesAdminLayoutUserData } from './styles'
 
 export const AdminLayoutUserData = () => {
@@ -26,7 +28,7 @@ export const AdminLayoutUserData = () => {
         }}
         variant="dot"
       >
-        <Avatar className={classes.avatar}>{userLogged.name.charAt(0)}</Avatar>
+        <Avatar className={classes.avatar}>{getInitials(userLogged.name)}</Avatar>
       </AdminLayoutUserDataStyledBadge>
 
       <Box display="flex" marginLeft={5}>
