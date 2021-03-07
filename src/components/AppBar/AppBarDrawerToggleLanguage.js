@@ -2,6 +2,8 @@ import React, { useCallback, useMemo, useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
+import moment from 'moment'
+
 import {
   Button,
   Dialog,
@@ -48,8 +50,10 @@ export const AppBarDrawerToggleLanguage = () => {
     setOpenSelect(false)
   }, [setOpenSelect])
 
+  // Troca de linguagem poderia ser evoluída para um hook.
   const handleConfirm = useCallback(() => {
     i18next.changeLanguage(language)
+    moment.locale(language)
     handleClose()
   }, [handleClose, language])
 

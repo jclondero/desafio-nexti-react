@@ -14,7 +14,7 @@ export const AdminLayoutFilters = () => {
   const classes = stylesAdminLayoutFilters()
 
   return (
-    <Box display="flex" flex={1} flexDirection="column">
+    <Box display="flex" flexDirection="column">
       <TextField id="outlined-search" label={t('search')} type="search" variant="outlined" />
 
       <Box display="flex" alignItems="center" justifyContent="space-between" marginTop={3}>
