@@ -2,6 +2,14 @@ import { Badge, makeStyles, withStyles } from '@material-ui/core'
 
 import { deepPurple } from '@material-ui/core/colors'
 
+export const stylesAdminLayoutFavorites = makeStyles({
+  root: {
+    height: 240,
+    flexGrow: 1,
+    maxWidth: 400,
+  },
+})
+
 export const stylesAdminLayoutUserData = makeStyles((theme) => ({
   avatar: {
     color: theme.palette.getContrastText(deepPurple[500]),
