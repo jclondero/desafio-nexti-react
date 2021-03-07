@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -18,14 +18,22 @@ export const AdminLayoutFavorites = () => {
 
   const classes = stylesAdminLayoutFavorites()
 
-  const { data: favorites } = useQueryFavorites()
+  const { data: favorites = [] } = useQueryFavorites()
+
+  const countFavorites = useMemo(() => {
+    if (favorites.length) {
+      return 30
+    }
+
+    return 0
+  }, [favorites])
 
   return (
     <Box>
       <Box marginLeft={5} marginBottom={2} display="flex" justifyContent="space-between">
         <Typography>{t('favorites')}</Typography>
 
-        <Typography>30</Typography>
+        <Typography>{countFavorites}</Typography>
       </Box>
 
       <TreeView

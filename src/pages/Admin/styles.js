@@ -10,6 +10,13 @@ export const stylesAdminLayoutFavorites = makeStyles({
   },
 })
 
+export const stylesAdminLayoutFilters = makeStyles({
+  buttonSpacing: {
+    marginTop: 20,
+    marginRight: 20,
+  },
+})
+
 export const stylesAdminLayoutUserData = makeStyles((theme) => ({
   avatar: {
     color: theme.palette.getContrastText(deepPurple[500]),

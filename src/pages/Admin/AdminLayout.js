@@ -2,8 +2,9 @@ import React from 'react'
 
 import { Box, Divider } from '@material-ui/core'
 
-import { AdminLayoutUserData } from './AdminLayoutUserData'
 import { AdminLayoutFavorites } from './AdminLayoutFavorites'
+import { AdminLayoutFilters } from './AdminLayoutFilters'
+import { AdminLayoutUserData } from './AdminLayoutUserData'
 
 export const AdminLayout = () => {
   return (
@@ -18,8 +19,8 @@ export const AdminLayout = () => {
         <AdminLayoutFavorites />
       </Box>
 
-      <Box display="flex" flex={1}>
-        Outro lado
+      <Box display="flex" flex={1} margin={3}>
+        <AdminLayoutFilters />
       </Box>
     </Box>
   )
