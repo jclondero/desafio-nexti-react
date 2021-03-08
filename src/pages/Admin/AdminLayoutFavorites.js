@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useContext, useEffect, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -11,14 +11,24 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import { useQueryFavorites } from '../../api/queries/favorites'
 
+import { AdminProvider } from './AdminContext'
+
 import { stylesAdminLayoutFavorites } from './styles'
 
 export const AdminLayoutFavorites = () => {
+  const { subtaskArchived: archivedItems, setTaskId } = useContext(AdminProvider)
   const { t } = useTranslation()
 
   const classes = stylesAdminLayoutFavorites()
 
-  const { data: favorites = [] } = useQueryFavorites()
+  const { data: favorites = [], refetch } = useQueryFavorites({ archivedItems }, { enabled: false })
+
+  // TODO: quando parametro é modificado refetch da querie não é realizado.
+  useEffect(() => {
+    refetch()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [archivedItems])
 
   const countFavorites = useMemo(() => {
     if (favorites.length) {
@@ -61,6 +71,7 @@ export const AdminLayoutFavorites = () => {
                     <Typography>15</Typography>
                   </Box>
                 }
+                onClick={() => setTaskId(subMenu.id)}
               />
             ))}
           />

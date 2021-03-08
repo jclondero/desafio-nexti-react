@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -6,9 +6,12 @@ import { Box, Button, TextField } from '@material-ui/core'
 
 import { FilterList } from '@material-ui/icons'
 
+import { AdminProvider } from './AdminContext'
+
 import { stylesAdminLayoutFilters } from './styles'
 
 export const AdminLayoutFilters = () => {
+  const { archiveSubtask } = useContext(AdminProvider)
   const { t } = useTranslation()
 
   const classes = stylesAdminLayoutFilters()
@@ -22,9 +25,11 @@ export const AdminLayoutFilters = () => {
           <Button className={classes.buttonSpacing} color="primary" variant="contained">
             {t('toAssign')}
           </Button>
-          <Button className={classes.buttonSpacing} color="primary" variant="contained">
+
+          <Button className={classes.buttonSpacing} color="primary" variant="contained" onClick={archiveSubtask}>
             {t('toFile')}
           </Button>
+
           <Button className={classes.buttonSpacing} color="primary" variant="contained">
             {t('toSchedule')}
           </Button>

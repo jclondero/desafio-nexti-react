@@ -1,22 +1,48 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 
-import { Box } from '@material-ui/core'
+import { Box, Divider } from '@material-ui/core'
 
+import { useQueryTaskboard } from '../../api/queries/taskboard'
+
+import { AdminProvider } from './AdminContext'
+
+import { AdminLayoutTaskboardEmpty } from './AdminLayoutTaskboardEmpty'
 import { AdminLayoutTaskboardItem } from './AdminLayoutTaskboardItem'
-
-const mock = {
-  id: 1,
-  name: 'João Bosco',
-  subject: 'Preciso que formate o meu computador!',
-  owner: 'JB',
-  users: ['JB', 'MJ', 'LH'],
-  date: '2021-03-07T15:54:49-03:00',
-}
+import { AdminLayoutTaskboardLoading } from './AdminLayoutTaskboardLoading'
 
 export const AdminLayoutTaskboard = () => {
+  const { taskId } = useContext(AdminProvider)
+
+  const { data: taskboard = [], isFetching, refetch } = useQueryTaskboard({ taskId }, { enabled: false })
+
+  // TODO: quando parametro é modificado refetch da querie não é realizado.
+  useEffect(() => {
+    refetch()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskId])
+
+  if (isFetching) {
+    return <AdminLayoutTaskboardLoading />
+  }
+
+  if (!taskboard.length) {
+    return <AdminLayoutTaskboardEmpty />
+  }
+
   return (
     <Box>
-      <AdminLayoutTaskboardItem {...mock} />
+      {taskboard.map((item) =>
+        item.subMenuItems.map((subMenuItem) => (
+          <>
+            <AdminLayoutTaskboardItem {...subMenuItem} />
+
+            <Box my={3}>
+              <Divider />
+            </Box>
+          </>
+        ))
+      )}
     </Box>
   )
 }
