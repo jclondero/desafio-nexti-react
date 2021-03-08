@@ -32,7 +32,13 @@ export const AdminLayoutFavorites = () => {
 
   const countFavorites = useMemo(() => {
     if (favorites.length) {
-      return 30
+      return favorites.reduce((acc, next, idx) => {
+        if (idx === 1) {
+          return acc.subMenus.length + next.subMenus.length
+        }
+
+        return acc + next.subMenus.length
+      })
     }
 
     return 0
@@ -58,7 +64,7 @@ export const AdminLayoutFavorites = () => {
               <Box display="flex" justifyContent="space-between" paddingY={1} marginLeft={5}>
                 <Typography>{favorite.name}</Typography>
 
-                <Typography>15</Typography>
+                <Typography>{(favorite.subMenus || []).length}</Typography>
               </Box>
             }
             children={favorite.subMenus.map((subMenu) => (
@@ -68,7 +74,7 @@ export const AdminLayoutFavorites = () => {
                   <Box display="flex" justifyContent="space-between" paddingY={1} marginLeft={5}>
                     <Typography>{subMenu.name}</Typography>
 
-                    <Typography>15</Typography>
+                    <Typography>{(favorite.subMenus || []).length}</Typography>
                   </Box>
                 }
                 onClick={() => setTaskId(subMenu.id)}

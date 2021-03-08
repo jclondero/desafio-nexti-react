@@ -33,7 +33,7 @@ export const AdminLayoutTaskboard = () => {
   return (
     <Box>
       {taskboard.map((item) =>
-        item.subMenuItems.map((subMenuItem) => (
+        (item.subMenuItems || []).map((subMenuItem) => (
           <>
             <AdminLayoutTaskboardItem {...subMenuItem} />
 
