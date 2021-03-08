@@ -1,10 +1,10 @@
-import React, { memo } from 'react'
+import React, { memo, useContext, useMemo } from 'react'
 
-import { Avatar, Box, Typography } from '@material-ui/core'
+import { Avatar, Box, Checkbox, Typography } from '@material-ui/core'
 
 import { AvatarGroup } from '@material-ui/lab'
 
-import { Message, Send } from '@material-ui/icons'
+import { Check, Message, Send } from '@material-ui/icons'
 
 // Não foi utilizado classe pois com o random interno acabaria atribuindo a mesma cor para todos os avatares pertencentes a classe
 import { getColor } from 'random-material-color'
@@ -12,13 +12,51 @@ import { getColor } from 'random-material-color'
 import { formatDate } from '../../helpers/dates'
 import { getInitials } from '../../helpers/strings'
 
-export const AdminLayoutTaskboardItem = memo(({ date, name, subject, owner, users }) => {
+import { useHover } from '../../hooks/useHover'
+
+import { AdminProvider } from './AdminContext'
+import { grey } from '@material-ui/core/colors'
+
+export const AdminLayoutTaskboardItem = memo(({ id, date, name, subject, owner, users, ...props }) => {
+  const { selectSubtask, subtaskHasSelected, subtaskSelected } = useContext(AdminProvider)
+
+  const [ref, hovered] = useHover()
+
+  const styledAvatar = useMemo(() => {
+    if (subtaskHasSelected(id)) {
+      return {
+        color: 'white',
+        backgroundColor: getColor({ shades: ['400'] }),
+      }
+    }
+
+    if (!subtaskHasSelected(id) && subtaskSelected.length) {
+      return {
+        backgroundColor: grey[200],
+      }
+    }
+
+    return {}
+  }, [id, subtaskHasSelected, subtaskSelected])
+
+  const avatarRender = useMemo(() => {
+    if (hovered || subtaskSelected.length) {
+      return (
+        <Checkbox style={styledAvatar} icon={<Check />} checkedIcon={<Check />} onClick={() => selectSubtask(id)} />
+      )
+    }
+
+    return (
+      <Avatar alt={name} style={{ color: 'white', backgroundColor: getColor({ shades: ['400'] }) }}>
+        {owner}
+      </Avatar>
+    )
+  }, [hovered, id, name, owner, selectSubtask, styledAvatar, subtaskSelected])
+
   return (
     <Box display="flex" alignItems="center">
-      <Box marginRight={2}>
-        <Avatar alt={name} style={{ color: 'white', backgroundColor: getColor({ shades: ['400'] }) }}>
-          {owner}
-        </Avatar>
+      <Box ref={ref} marginRight={2}>
+        {avatarRender}
       </Box>
 
       <Box display="flex" flexDirection="column" flex={1}>
