@@ -2,8 +2,6 @@ import React, { useCallback, useMemo, useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import moment from 'moment'
-
 import {
   Button,
   Dialog,
@@ -22,11 +20,12 @@ import {
 
 import { Translate } from '@material-ui/icons'
 
-import i18next from '../../providers/i18n'
+import { useLanguage } from '../../hooks/useLanguage'
 
 import { stylesDrawerToggleLanguage } from './styles'
 
 export const AppBarDrawerToggleLanguage = () => {
+  const { changeLanguage } = useLanguage()
   const { i18n, t } = useTranslation()
 
   const resources = useMemo(() => {
@@ -50,12 +49,10 @@ export const AppBarDrawerToggleLanguage = () => {
     setOpenSelect(false)
   }, [setOpenSelect])
 
-  // Troca de linguagem poderia ser evoluída para um hook.
   const handleConfirm = useCallback(() => {
-    i18next.changeLanguage(language)
-    moment.locale(language)
+    changeLanguage(language)
     handleClose()
-  }, [handleClose, language])
+  }, [changeLanguage, handleClose, language])
 
   return (
     <>
