@@ -2,7 +2,7 @@ import { createContext, useCallback, useMemo, useState } from 'react'
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 
-import { deepOrange, deepPurple, lightBlue, orange } from '@material-ui/core/colors'
+import { blue, deepOrange, deepPurple, orange } from '@material-ui/core/colors'
 
 export const ThemeContext = createContext('theme')
 
@@ -37,7 +37,7 @@ const Theme = ({ children }) => {
       palette: {
         type: 'light',
         primary: {
-          main: lightBlue[500],
+          main: blue[500],
         },
         secondary: {
           main: deepPurple[500],
