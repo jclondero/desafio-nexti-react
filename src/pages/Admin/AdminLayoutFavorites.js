@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { Box, Typography } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 
 import { TreeItem, TreeView } from '@material-ui/lab'
 
@@ -47,9 +47,11 @@ export const AdminLayoutFavorites = () => {
   return (
     <Box>
       <Box marginLeft={5} marginBottom={2} display="flex" justifyContent="space-between">
-        <Typography>{t('favorites')}</Typography>
+        <Box fontWeight="fontWeightLight" fontSize={18}>
+          {t('favorites')}
+        </Box>
 
-        <Typography>{countFavorites}</Typography>
+        <Box fontWeight="fontWeightLight">{countFavorites}</Box>
       </Box>
 
       <TreeView
@@ -62,9 +64,9 @@ export const AdminLayoutFavorites = () => {
             nodeId={favorite.id}
             label={
               <Box display="flex" justifyContent="space-between" paddingY={1} marginLeft={5}>
-                <Typography>{favorite.name}</Typography>
+                <Box fontWeight="fontWeightLight">{favorite.name}</Box>
 
-                <Typography>{(favorite.subMenus || []).length}</Typography>
+                <Box fontWeight="fontWeightLight">{(favorite.subMenus || []).length}</Box>
               </Box>
             }
             children={favorite.subMenus.map((subMenu) => (
@@ -72,9 +74,9 @@ export const AdminLayoutFavorites = () => {
                 nodeId={subMenu.id}
                 label={
                   <Box display="flex" justifyContent="space-between" paddingY={1} marginLeft={5}>
-                    <Typography>{subMenu.name}</Typography>
+                    <Box fontWeight="fontWeightLight">{subMenu.name}</Box>
 
-                    <Typography>{(favorite.subMenus || []).length}</Typography>
+                    <Box fontWeight="fontWeightLight">{(favorite.subMenus || []).length}</Box>
                   </Box>
                 }
                 onClick={() => setTaskId(subMenu.id)}

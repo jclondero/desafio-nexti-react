@@ -1,6 +1,6 @@
 import React, { memo, useContext, useMemo } from 'react'
 
-import { Avatar, Box, Checkbox, Typography } from '@material-ui/core'
+import { Avatar, Box, Checkbox } from '@material-ui/core'
 
 import { AvatarGroup } from '@material-ui/lab'
 
@@ -61,15 +61,15 @@ export const AdminLayoutTaskboardItem = memo(({ id, date, name, subject, owner, 
 
       <Box display="flex" flexDirection="column" flex={1}>
         <Box display="flex" marginBottom={1}>
-          <Typography>{name}</Typography>
+          <Box fontWeight="fontWeightBold">{name}</Box>
         </Box>
 
-        <Box display="flex" marginBottom={1}>
+        <Box display="flex">
           <Box marginRight={1}>
             <Message />
           </Box>
 
-          <Typography>{subject}</Typography>
+          <Box fontWeight="fontWeightLight">{subject}</Box>
         </Box>
 
         <Box display="flex">
@@ -77,7 +77,7 @@ export const AdminLayoutTaskboardItem = memo(({ id, date, name, subject, owner, 
             <Send />
           </Box>
 
-          <Typography>Tarefa 1</Typography>
+          <Box fontWeight="fontWeightLight">Tarefa 1</Box>
         </Box>
       </Box>
 
