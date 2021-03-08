@@ -24,8 +24,8 @@ export default function Auth() {
 
   const validationSchema = useMemo(() => {
     return yup.object().shape({
-      email: yup.string().email(t('feedbacks:emailInvalid')).required(t('feedbacks:requiredEmail')),
-      password: yup.string().required(t('feedbacks:requiredPassword')),
+      email: yup.string().email(t('emailInvalid')).required(t('requiredEmail')),
+      password: yup.string().required(t('requiredPassword')),
     })
   }, [t])
 
