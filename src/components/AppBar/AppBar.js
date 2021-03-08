@@ -20,7 +20,7 @@ export const AppBar = () => {
 
   return (
     <>
-      <AppBarMaterialUI position="static">
+      <AppBarMaterialUI position="fixed">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggle}>
             <MenuIcon />
