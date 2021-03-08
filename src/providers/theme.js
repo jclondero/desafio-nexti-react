@@ -4,17 +4,18 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 
 import { blue, deepOrange, deepPurple, orange } from '@material-ui/core/colors'
 
+import { getTheme, setTheme } from '../services/theme'
+
 export const ThemeContext = createContext('theme')
 
 const Theme = ({ children }) => {
-  const [palletMode, setPallet] = useState('dark')
+  const [palletMode, setPallet] = useState(getTheme() || 'light')
 
   const togglePallet = useCallback(() => {
-    if (palletMode === 'light') {
-      setPallet('dark')
-    } else {
-      setPallet('light')
-    }
+    const newPallet = palletMode === 'light' ? 'dark' : 'light'
+
+    setPallet(newPallet)
+    setTheme(newPallet)
   }, [palletMode, setPallet])
 
   const darkTheme = useMemo(
