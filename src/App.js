@@ -1,5 +1,7 @@
 import React, { lazy, Suspense, useContext, useMemo } from 'react'
 
+import { CircularProgress } from '@material-ui/core'
+
 import { AuthContext } from './providers/auth'
 
 const Admin = lazy(() => import('./pages/Admin'))
@@ -17,7 +19,7 @@ function App() {
   }, [userLogged])
 
   return (
-    <Suspense fallback={() => <p>Carregando...</p>}>
+    <Suspense fallback={<CircularProgress />}>
       <Component />
     </Suspense>
   )
